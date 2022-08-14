@@ -2,11 +2,8 @@ FROM fedora:latest
 RUN dnf -yqq install httpd git
 ADD my-info.html /var/www/html/my-info.html
 ADD website1.html /var/www/html/website1.html
-    &&
-    LABEL website=1
-
+LABEL website=1
 ADD website2.html /var/www/html/website2.html
-    &&
-    LABEL website=2
+LABEL website=2
 EXPOSE 80
 ENTRYPOINT /usr/sbin/httpd -DFOREGROUND
