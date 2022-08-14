@@ -1,7 +1,7 @@
+## Assignment 5 ##
 FROM fedora:latest
-RUN dnf -yqq install tuxpaint
-RUN dnf -yqq install vim
 RUN dnf -yqq install httpd git
-ADD my-info.html /var/www/html/my-info.html
+VOLUME data /var/www/html/data
+ADD data\my-info.html /var/www/html/my-info.html
 EXPOSE 80
 ENTRYPOINT /usr/sbin/httpd -DFOREGROUND
